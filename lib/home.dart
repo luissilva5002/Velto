@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:velto/pages/budget/budget.dart';
 import 'package:velto/pages/dashboard/dashboard.dart';
+import 'package:velto/pages/investments/investments.dart';
 
 class Home extends StatefulWidget {
   final int? selectedIndex;
@@ -27,32 +29,30 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
-      Dashboard(spreadsheetId: '1h116Ws8bJ6lBjgOavPXQIiqt_jLJF9VDPKYsk6TCUcg'),
+    final List<Widget> pages = [
+      const Dashboard(spreadsheetId: '1h116Ws8bJ6lBjgOavPXQIiqt_jLJF9VDPKYsk6TCUcg'),
+      const Budget(),
+      const Investments(spreadsheetId: '1h116Ws8bJ6lBjgOavPXQIiqt_jLJF9VDPKYsk6TCUcg'),
     ];
 
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.teal,
+        selectedItemColor: const Color(0xFF013024),
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: 'Chat',
+            icon: Icon(Icons.table_chart),
+            label: 'Budget',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            label: 'Events',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.candlestick_chart),
+            label: 'Investments',
           ),
         ],
         unselectedItemColor: Colors.grey,

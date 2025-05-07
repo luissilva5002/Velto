@@ -63,6 +63,8 @@ dependencies:
 
   googleapis_auth: ^1.6.0
 
+  fl_chart: ^0.64.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
